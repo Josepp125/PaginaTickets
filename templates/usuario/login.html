@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+</head>
+<body>
+
+    {{template "encabezado"}}
+
+<div>
+        <div class="modal-dialog" id="modalBody" style="width: 380px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ingreso al Sistema</h4>
+                </div>
+
+                <div class="modal-body" style="width: 280px; margin: auto">
+                    <form id="frmLogin" action="/validar" class="form-horizontal">
+                        <div class="row">
+                            <label class="col-md-5" for="login">Usuario</label>
+                            <div class="controls col-md-5">
+                                <input name="login" id="login" type="text" class="form-control required"
+                                       placeholder="Usuario" required autofocus style="width: 160px;">
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <label class="col-md-5" for="pass">Contraseña</label>
+
+                            <div class="controls col-md-5">
+                                <input name="pass" id="pass" type="password" class="form-control required"
+                                       placeholder="Contraseña" required style="width: 160px;">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3" style="width: 100%">
+                            <a href="#" class="btn btn-primary btn-lg btn-block" id="btn-login"
+                               style="width: 140px; margin: auto">
+                                <i class="fa fa-lock"></i> Ingresar
+                            </a>
+                            <!-- <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ingresar"> -->
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> <br><br><br><br><br>
+
+    {{template "pie"}}
+
+<script type="text/javascript">
+    $("#btn-login").click(function () {
+        $("#frmLogin").submit();
+    });
+    $(".form-control").keydown(function (ev) {
+        if (ev.keyCode == 13) {
+            $("#frmLogin").submit();
+            return false;
+        }
+        return true;
+    });
+</script>
+
+</body>
+</html>
